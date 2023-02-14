@@ -118,10 +118,20 @@
       if(!todoItemForm.input.value){
         return;
       }
-      todoList.append(createTodoItem(todoItemForm.input.value).item);
+
+      let todoItem = createTodoItem(todoItemForm.input.value);
+      todoItem.doneButton.addEventListener('click', function(){
+        todoItem.item.classList.toggle('list-group-item-success');
+      });
+      todoItem.deleteButton.addEventListener('click', function(){
+        if(confirm('Вы уверены?')){
+          todoItem.item.remove();
+        }
+      });
+      todoList.append(todoItem.item);
       todoItemForm.input.value = '';
     }
 
-    //console.log(todoItemForm.input.value);
+
   } );
  })();
