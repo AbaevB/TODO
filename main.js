@@ -16,18 +16,18 @@
   function createTodoItemForm(){
     let form = document.createElement('form');
     let input = document.createElement('input');
-    let buuttonWrapper = document.createElement('div');
+    let buttonWrapper = document.createElement('div');
     let button = document.createElement('button');
     form.classList.add('input-group', 'mb-3');
     input.classList.add('form-control');
     input.placeholder = 'Введите название нового дела';
-    buuttonWrapper.classList.add('input-group-append');
+    buttonWrapper.classList.add('input-group-append');
     button.classList.add('btn', 'btn-primary');
     button.textContent = 'Добавить дело';
 
-    buuttonWrapper.append(button);
+    buttonWrapper.append(button);
     form.append(input);
-    form.append(buuttonWrapper);
+    form.append(buttonWrapper);
 
     /**
      * <form class="input-group mb-3">
