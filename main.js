@@ -4,7 +4,7 @@
    */
   function createAppTitle(title){
     let appTitle = document.createElement('h2');
-    appTitle.innerHTML = tile;
+    appTitle.innerHTML = title;
     return appTitle;
   }
 
@@ -17,8 +17,7 @@
     let form = document.createElement('form');
     let input = document.createElement('input');
     let buuttonWrapper = document.createElement('div');
-    let button = createElement('button');
-
+    let button = document.createElement('button');
     form.classList.add('input-group', 'mb-3');
     input.classList.add('form-control');
     input.placeholder = 'Введите название нового дела';
@@ -46,6 +45,8 @@
     };
   }
 
+
+
   /**Создаем и возвращаем
    * список элементов.
    */
@@ -55,7 +56,16 @@
     list.classList.add('list-group');
     return list;
   }
-  document.addEventListener('DOMContentLoaded', function(){
 
+  document.addEventListener('DOMContentLoaded', function(){
+    let container = document.getElementById('todo-app');
+
+    let todoApptitle = createAppTitle('Список дел');
+    let todoItemForm = createTodoItemForm();
+    let todoList = createTodoList();
+
+    container.append(todoApptitle);
+    container.append(todoItemForm.form);
+    container.append(todoList);
   } );
  })();
