@@ -57,6 +57,45 @@
     return list;
   }
 
+  /**Создание списка
+   * задач
+   */
+
+  function createTodoItem(name){
+    let item = document.createElement('li');
+    // Помещаем кнопки в buttongroup
+
+    let buttonGroup = document.createElement('div');
+    let doneButton = document.createElement('button');
+    let deleteButton = document.createElement('button');
+
+    // Устанавливаем стили для элементов списка, а так же
+    // для размещения в его правой части с помощью flex.
+
+    item.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-item-center');
+    item.textContent = name;
+
+    buttonGroup.classList.add('btn-group', 'btn-group-sm');
+    doneButton.classList.add('btn', 'btn-success');
+    doneButton.textContent = 'Готово';
+    deleteButton.classList.add('btn', 'btn-danger');
+    deleteButton.textContent ='Удалить';
+
+    // Вкладываем кнопки в отдельный элемент,
+    // чтобы они объединились в один блок
+
+    buttonGroup.append(doneButton);
+    buttonGroup.append(deleteButton);
+    item.append(buttonGroup);
+
+    return {
+      item,
+      doneButton,
+      deleteButton,
+    }
+
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     let container = document.getElementById('todo-app');
 
@@ -64,8 +103,13 @@
     let todoItemForm = createTodoItemForm();
     let todoList = createTodoList();
 
+
     container.append(todoApptitle);
     container.append(todoItemForm.form);
     container.append(todoList);
+
   } );
+
+
+
  })();
