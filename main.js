@@ -30,6 +30,15 @@
     form.append(input);
     form.append(buuttonWrapper);
 
+    /**
+     * <form class="input-group mb-3">
+     *  <input class="form-control" plceholder="Введите название нового дела">
+        *  <div class="input-group-append">
+        *     <button class="btn btn-primary">Добавить дело</button>
+        *  </div>
+     * </form>
+     */
+
     return {
       form,
       input,
@@ -42,7 +51,11 @@
    */
 
   function createTodoList(){
-
+    let list = document.createElement('ul');
+    list.classList.add('list-group');
+    return list;
   }
+  document.addEventListener('DOMContentLoaded', function(){
 
- });
+  } );
+ })();
