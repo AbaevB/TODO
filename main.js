@@ -108,8 +108,20 @@
     container.append(todoItemForm.form);
     container.append(todoList);
 
+    /**Браузер создает событие submit
+     * на форме по нажатию на наEnter
+     * или на кнопку создания дела
+     */
+    todoItemForm.form.addEventListener('submit', todoSubmit);
+    function todoSubmit(e){
+      e.preventDefault();
+      if(!todoItemForm.input.value){
+        return;
+      }
+      todoList.append(createTodoItem(todoItemForm.input.value).item);
+      todoItemForm.input.value = '';
+    }
+
+    //console.log(todoItemForm.input.value);
   } );
-
-
-
  })();
